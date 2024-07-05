@@ -79,7 +79,9 @@ export default function UsersInformation() {
                 const language = repositories.language
                   ? repositories.language
                   : "n/a";
-
+                const color =
+                  programmingLanguageStatusIcons[repositories.language] ??
+                  "#8d96a0";
                 return (
                   <Card>
                     <div className="flex justify-between w-full">
@@ -101,11 +103,8 @@ export default function UsersInformation() {
                     </div>
                     <div className="flex items-center gap-3">
                       <span
-                        className={`w-3 h-3 rounded-full bg-[${
-                          programmingLanguageStatusIcons[
-                            repositories.language
-                          ] ?? "#8d96a0"
-                        }]`}
+                        className="w-3 h-3 rounded-full"
+                        style={{ backgroundColor: color }}
                       />
                       <div className="text-[#8d96a0]">{language}</div>
                       <IconStar />
